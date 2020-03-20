@@ -50,12 +50,21 @@ public class DeterminantCalc {
         }
     }
 
+    /*  isUpperTriangular and isLowerTriangular methods are used to find null elements in matrices with
+    orders of magnitude greater than 2. This helps to simplify the determination of the determinant
+    by reducing the number of calls to the makeTriangular function
+     */
 
     public boolean isUpperTriangular() {
+
+        /* we check the order of the matrix
+          */
 
         if (matrix.length < 2)
             return false;
 
+        /* we check the matrix for zero elements
+         */
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (matrix[i][j] != 0)
@@ -70,9 +79,14 @@ public class DeterminantCalc {
 
     public boolean isLowerTriangular() {
 
+        /* we check the order of the matrix
+          */
+
         if (matrix.length < 2)
             return false;
 
+        /* we check the matrix for zero elements
+          */
         for (int j = 0; j < matrix.length; j++) {
             for (int i = 0; j > i; i++) {
                 if (matrix[i][j] != 0)
